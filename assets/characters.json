@@ -1,0 +1,47 @@
+{
+  "karl": {
+    "name": "Karl",
+    "image": "/assets/characters/karl.png",
+    "color": "#6464C8"
+  },
+  "zoe": {
+    "name": "Zoe",
+    "image": "/assets/characters/zoe.png",
+    "color": "#24a23c"
+  },
+  "jakob": {
+    "name": "Jakob",
+    "image": "/assets/characters/jakob.png",
+    "color": "#FF3232"
+  },
+  "tracy": {
+    "name": "Tracy",
+    "image": "/assets/characters/tracy.png",
+    "color": "#dd4c9a"
+  },
+  "policeman1": {
+    "name": "Policeman 1",
+    "image": "",
+    "color": "#EEFFDD"
+  },
+  "policeman2": {
+    "name": "Policeman 2",
+    "image": "",
+    "color": "#EEFFDD"
+  },
+  "policeman3": {
+    "name": "Policeman 3",
+    "image": "",
+    "color": "#EEFFDD"
+  },
+  "squirrel": {
+    "name": "Squirrel",
+    "image": "/assets/characters/squirrel.png",
+    "color": "#FF9911"
+  },
+  "demon": {
+    "name": "????",
+    "image": "/assets/characters/demon.png",
+    "color": "#FF0000"
+  }
+}

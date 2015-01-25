@@ -1,0 +1,143 @@
+{
+  "id": "graveyard",
+  "location": "graveyard",
+  "dialogs": {
+    "default": [
+      {"character": "tracy", "text": "How did we end up here?!"},
+      {"character": "tracy", "text": "This place is creepy"},
+      {"character": "zoe", "text": "I can almost feel the presence of my grandma~~"},
+      {"character": "jakob", "text": "Your granny is still alive..."},
+      {"character": "zoe", "text": "Oh, I guess I just feel hungry then."},
+      {"character": "karl", "text": "I recommend we split up and look for a way to get out of here."}
+    ],
+    "zoe1": [
+      {"character": "tracy", "text": "Where have you been so long?"},
+      {"character": "zoe", "text": "I met the spirit of my grandma and we talked about the meaning of life~~"},
+      {"character": "jakob", "text": "Your gradma is still alive!!!"}
+    ],
+    "zoe2": [
+      {"character": "tracy", "text": "What took you so long this time?"},
+      {"character": "zoe", "text": "I met grandma's spirit again and she lectured me about the consequences of drug abuse."},
+      {"character": "jakob", "text": "Your grandma is STILL alive!!!"}
+    ],
+    "zoe3": [
+      {"character": "karl", "text": "Welcome back."},
+      {"character": "zoe", "text": "Hey, I met grandma again ..."},
+      {"character": "jakob", "text": "YOUR GRANDMA ..."},
+      {"character": "zoe", "text": ".. she told me we could use the funeral car at the other end of the graveyard, the keys are in the ignition."},
+      {"character": "jakob", "text": "... !?!?!?!?!"},
+      {"character": "karl", "text": "That sounds like a possible solution."},
+      {"character": "jakob", "text": "...  but her grandma is ..."},
+      {"character": "tracy", "text": "Who cares, are you coming or not?"},
+      {"character": "jakob", "text": "..."}
+    ],
+    "demon": [
+      {"character": "karl", "text": "I'm back."},
+      {"character": "zoe", "text": "WHAT"},
+      {"character": "jakob", "text": "IS"},
+      {"character": "tracy", "text": "THAT"},
+      {"character": "demon", "text": "narg?"},
+      {"character": "karl", "text": "Well, I met members of the so called \"Hobbyist demon summoning club\""},
+      {"character": "karl", "text": "They tried to summon a demon."},
+      {"character": "karl", "text": "I was able to help them out with the old book I found in Tracy's apartment."},
+      {"character": "jakob", "text": "Looks like it worked."},
+      {"character": "zoe", "text": "Can we keep him?"},
+      {"character": "tracy", "text": "And where are the club members?"},
+      {"character": "karl", "text": "He ate them all."},
+      {"character": "demon", "text": "Boooeerks..."}
+    ],
+    "karl": [
+      {"character": "karl", "text": "I did not find anything."}
+    ],
+    "jakob": [
+      {"character": "jakob", "text": "Nothing but zombies."}
+    ],
+    "tracy": [
+      {"character": "tracy", "text": "This place is so dirty, I will ruin my shoes. I stay here."}
+    ]
+
+  },
+  "choices": [
+    {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "jakob",
+      "dialog": "jakob",
+      "local": {
+        "deniedBy": ["car"]
+      }
+    }, {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "tracy",
+      "dialog": "tracy",
+      "local": {
+        "deniedBy": ["car"]
+      }
+    }, {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "zoe",
+      "dialog": "zoe1",
+      "local": {
+        "set": ["zoe1"],
+        "deniedBy": ["zoe1"]
+      }
+    }, {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "zoe",
+      "dialog": "zoe2",
+      "local": {
+        "set": ["zoe2"],
+        "requires": ["zoe1"],
+        "deniedBy": ["zoe2"]
+      }
+    }, {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "zoe",
+      "dialog": "zoe3",
+      "local": {
+        "set": ["car"],
+        "requires": ["zoe2"],
+        "deniedBy": ["car"]
+      }
+    }, {
+      "text": "Scout the graveyard.",
+      "href": "graveyard",
+      "character": "karl",
+      "dialog": "karl",
+      "local": {
+        "deniedBy": ["car"]
+      }
+    }, {
+      "text": "Scout the graveyard <using misterious item obtained from Tracy's basement>",
+      "href": "graveyard",
+      "character": "karl",
+      "dialog": "demon",
+      "global": {
+        "requires": ["demonScroll"],
+        "unset": ["demonScroll"]
+      }
+    }, {
+      "text": "Go to gas station",
+      "href": "gasStation",
+      "local": {
+        "requires": ["car"]
+      }
+    }, {
+      "text": "Go to Jakob's apartment",
+      "href": "jakobsApartment",
+      "local": {
+        "requires": ["car"]
+      }
+    }, {
+      "text": "Just drive",
+      "href": "funfair",
+      "local": {
+        "requires": ["car"]
+      }
+    }
+  ]
+}

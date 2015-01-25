@@ -1,0 +1,192 @@
+{
+  "id": "lockup",
+  "location": "lockup",
+  "description": "The place you don't want see the inside.",
+  "dialogs": {
+    "default": [
+      {"character": "zoe", "text": "it's... silent in here, I like it :)"},
+      {"character": "tracy", "text": "I can't believe this happened, this sucks!"},
+      {"character": "jakob", "text": "Nothing can stop me from getting beer, we have to break out!"},
+      {"character": "karl", "text": "I believe there is no way how we can break free from confinement now."},
+      {"character": "karl", "text": "... But look what I got here: My T-900 original dice pair! We won't get bored at least."},
+      {"character": "tracy", "text": "Please ... shoot ... me!"}
+    ],
+    "cellBars": [
+      {"character": "narrator", "text": "<joseph tries to bend the cell bars but whatever what he does, it doesn't result in any visual changes>"},
+      {"character": "jakob", "text": "hngggg... hmpf... arrrgh..."},
+      {"character": "jakob", "text": "It doesn't work??? how is this possible?"}
+    ],
+    "rollDice": [
+      {"character": "tracy", "text": "You little nerd, this ain't some kind of game, IT'S THE JAIL!!"},
+      {"character": "karl", "text": "Beware the true power of this armed and fully operational dice!"}
+    ],
+    "higherPower": [
+      {"character": "zoe", "text": "Oh great power above!"},
+      {"character": "narrator", "text": "<Thunder is grumbling outside>"},
+      {"character": "zoe", "text": "I call upon thee to set us free!"},
+      {"character": "tracy", "text": "Poser."},
+      {"character": "zoe", "text": "Sissy."},
+      {"character": "policeman1", "text": "WHO DARES TO DISTURB ME! <snickering outside>"},
+      {"character": "policeman1", "text": "IF I SHOULD GRANT YOU YOUR WISH, FIRST GRANT ME MINE!"},
+      {"character": "karl", "text": "Please state your wish then!"},
+      {"character": "policeman1", "text": "BRING ME A SHRUBBERY!"},
+      {"character": "policeman2", "text": "No, let them promise their first born."},
+      {"character": "policeman3", "text": "The dishes! Let them do the dishes!"},
+      {"character": "policeman2", "text": "Just because it's your turn..."},
+      {"character": "policeman1", "text": "SILENCE! BRING ... ME ... A ... SHRUBBERY!"},
+      {"character": "tracy", "text": "Oh come on, we heard you alright... just leave us alone!"},
+      {"character": "zoe", "text": "As you command... <starts looking for a shrubbery>"}
+    ],
+    "bendingBars": [
+      {"character": "jakob", "text": "Step aside! All those years of training finally pay off!"},
+      {"character": "narrator", "text": "<The bars remaing unaffected by Jakobs brute force>"},
+      {"character": "tracy", "text": "Oh my big strong (yet ineffective) hero!"},
+      {"character": "karl", "text": "Faith can move mountains! We have to believe in Jakob being able to subdue those puny bars of steel."},
+      {"character": "zoe", "text": "Oh cute little squirrel! Come here!"},
+      {"character": "squirrel", "text": "Go to hell you dumb B#$%H!"},
+      {"character": "tracy", "text": "Are you alright zoe? You were stroking the pillow for 5 minutes now."},
+      {"character": "zoe", "text": "Squirrels with bad mouths..."},
+      {"character": "tracy", "text": "You're the Obelix of stoned people..."}
+    ],
+    "tracyEatingSandwich": [
+      {"character": "zoe", "text": "I'm looking after my homies, here you go."},
+      {"character": "tracy", "text": "Thanks"},
+      {"character": "tracy", "text": "YUCK! This is completely inedable. Why did you carry THAT around?!"},
+      {"character": "zoe", "text": "I liked the green color, if you don't like it give it back!"},
+      {"character": "tracy", "text": "No way you're going to eat that. <throws the sandwich out of the window>"},
+      {"character": "zoe", "text": "Awwwwwwwwwwwwwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwwwwwwwwwww"},
+      {"character": "tracy", "text": "Stop with the sad eyes, I'll buy you a new one. You know, like - once we get out of here."},
+      {"character": "jakob", "text": "Are you done babbling? I need a beer, we need to get out of here. What do we do now?"}
+    ],
+    "withForce": [
+      {"character": "karl", "text": "Oh my, I feel so sickish! I might die this instant!"},
+      {"character": "zoe", "text": "You certainly look dead."},
+      {"character": "tracy", "text": "<screams> Help, we have an almost dead nerdo here!"},
+      {"character": "policeman1", "text": "Fine, one less of you to care about!"},
+      {"character": "tracy", "text": "COME, FAST!"},
+      {"character": "narrator", "text": "<The policeman enters the room. Jakob tries to hit him, but the policeman deftly avoids this and disables jakob.>"},
+      {"character": "narrator", "text": "<Ok, that was a lie. As the policeman enters jakob stumbles towards him, trips over his own feed and hits the ground.>"},
+      {"character": "policeman1", "text": "Ok, I have enough of you. I only wanted to take you in for a few hours, but you might want to stay ALL NIGHT."}
+    ],
+    "empty" : []
+  },
+  "choices": [
+    {
+      "text": "I just have to bend those cell bars and we're as good as free.",
+      "character": "jakob",
+      "dialog": "bendingBars",
+      "local": {
+        "deniedBy": ["triedToBend"],
+        "set": ["triedToBend"]
+      }
+    }, {
+      "text": "Karl plays dead, Tracy screams for help and when a cop comes, we hit him and escape!",
+      "character": "jakob",
+      "dialog": "withForce",
+      "local": {
+        "requires": ["triedToBend"],
+        "deniedBy": ["triedWithForce"],
+        "set": ["triedWithForce"]
+      }
+    }, {
+      "text": "Ok guys, enough is enough. You'll stay overnight to sober up!",
+      "character": "policeman1",
+      "href": "badEnd",
+      "local": {
+        "requires": ["triedWithForce"]
+      }
+    }, {
+      "text": "I am hungry, Zoe give me the sandwich you found.",
+      "character": "tracy",
+      "dialog": "tracyEatingSandwich",
+      "global": {
+        "requires": ["moldyToast"],
+        "unset": ["moldyToast"]
+      }
+    }, {
+      "text": "We can roll dice, when we roll a pair we get free",
+      "character": "karl",
+      "dialog": "rollDice",
+      "local": {
+        "set": ["rollDice"],
+        "deniedBy": ["rollDice"],
+        "counters": [
+	        { "name": "diceRoll",
+            "operation": "rnd",
+            "amount" : 2 } 
+	      ]
+      }
+    }, {
+      "text": "Unbelievable, we rolled a pair and the door is now unlocked, let's get outta here!",
+      "character": "tracy",
+      "href": "graveyard",
+      "local": {
+        "requires": ["rollDice"],
+        "unset": ["rollDice"],
+        "counters": [
+          { "name" : "diceRoll",
+            "equals": 1
+          },
+          { "name": "pairRole",
+            "equals": 2}
+        ]
+      }
+    }, {
+      "text": "We rolled a pair, and are still here, but we could try again!",
+      "character": "karl",
+      "dialog": "empty",
+      "local": {
+        "counters": [
+          { "name" : "diceRoll",
+            "equals": 1
+          },
+          { "name": "pairRole",
+            "operation": "add",
+            "amount": 1},
+          { "name": "pairRole",
+            "equals": 0}
+        ]
+      }
+    }, {
+      "text": "Maybe dice rolling is of no use after all... but maybe one last time?",
+      "character": "karl",
+      "dialog": "empty",
+      "local": {
+        "counters": [
+          { "name" : "diceRoll",
+            "equals": 1
+          },
+          { "name": "pairRole",
+            "operation": "add",
+            "amount": 1},
+          { "name": "pairRole",
+            "equals": 1}
+        ]
+      }
+    }, {
+      "text": "Ew, no pair... but logic tells us, we should roll again!",
+      "character": "karl",
+      "dialog": "empty",
+      "local": {
+        "requires": ["rollDice"],
+        "counters": [
+          { "name" : "diceRoll",
+            "equals": 0
+          },
+          { "name": "diceRoll",
+            "operation": "rnd",
+            "amount": 2}
+        ]
+      }
+    }, {
+      "text": "Call upon a higher power!!",
+      "character": "zoe",
+      "dialog": "higherPower",
+      "local": {
+        "deniedBy": ["higherPower"],
+        "set": ["higherPower"]
+      }
+
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #fff;
+  font-family: arial;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+h1 {
+  font-size: 4.5em;
+  text-shadow: 0px 0px 5px #000;
+  color: #fff;
+  font-family: monospace;
+}
+h2 {
+  font-size: 2em;
+  font-family: monospace;
+  text-shadow: -1px -1px 2px #fff, 1px -1px 2px #fff, 1px 1px 2px #fff, -1px 1px 2px #fff;
+  color: #000;
+}
+.introduction {
+  font-size: 2em;
+}
+.dialog {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.dialog .avatar {
+  float: left;
+  display: inline-block;
+  height: 300px;
+  width: 300px;
+  background-repeat: no-repeat;
+  -webkit-animation: play 1s steps(2) infinite;
+  animation: play 1s steps(2) infinite;
+}
+@-moz-keyframes play {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -600px;
+  }
+}
+@-webkit-keyframes play {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -600px;
+  }
+}
+@-o-keyframes play {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -600px;
+  }
+}
+@keyframes play {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -600px;
+  }
+}
+.dialog .characterSpeech {
+  border: 0.2em solid;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #fff;
+  float: left;
+  width: 60%;
+  min-height: 10em;
+  font-size: 1.3em;
+}
+.location {
+  background-position: 50%;
+  background-repeat: norepeat;
+  background-size: cover;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.location .content {
+  padding: 30px;
+}
+.location .choices {
+  background-color: rgba(0,0,0,0.8);
+  bottom: 0;
+  margin: 0;
+  position: fixed;
+  padding: 20px 40px;
+  width: 100%;
+}
+.location .choices li {
+  padding: 5px;
+  transition: all 0.3s;
+  color: #fff;
+}
+.location .choices li a,
+.location .choices li a:visited {
+  transition: all 0.3s;
+  color: #ccc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.location .choices li a:hover,
+.location .choices li a:visited:hover,
+.location .choices li a:focus,
+.location .choices li a:visited:focus {
+  color: #fff;
+  text-shadow: 0 0 5px #ccc;
+}
+a.fullscreen {
+  cursor: pointer;
+  position: fixed;
+  display: block;
+  right: 5px;
+  top: 5px;
+  width: 50px;
+  height: 50px;
+  background-image: url("/assets/images/fullscreen.png");
+}
+#intro {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/logo.png");
+  background-color: #000;
+  background-size: 50%;
+}

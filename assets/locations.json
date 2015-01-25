@@ -1,0 +1,35 @@
+{
+  "backgroundBlack": {
+    "backgroundColor": "#000"
+  },
+  "backgroundPaper": {
+    "backgroundColor": "#f8ecc2"
+  },
+  "apartment": {
+    "backgroundImage": "/assets/images/locations/tracys_apartment.jpg",
+    "title": "The apartment",
+    "description": "Tracy's apartment"
+  },
+  "jakobsApartment": {
+    "backgroundImage": "/assets/images/locations/jakobs_apartment.png",
+    "title": "Jakob's room",
+    "description": "A room uniting the sex appeal of the whole dormitory."
+  },
+  "gasStation": {
+    "backgroundImage": "/assets/images/locations/gas_station.jpg",
+    "title": "Gas station"
+  },
+  "lockup": {
+    "backgroundImage": "/assets/images/locations/police_station.jpg",
+    "title": "Lockup"
+  },
+  "funfair": {
+    "backgroundImage": "/assets/images/locations/funfair.png",
+    "title": "Funfair"
+  },
+  "graveyard": {
+    "backgroundImage": "/assets/images/locations/graveyard.png",
+    "title": "Graveyard",
+    "description": "A place of silence, peace and occasional zombie encounters"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "id": "apartment",
+  "location": "apartment",
+  "dialogs": {
+    "default": [
+      {"character": "tracy", "text": "I feel like having another beer. Please bring along a beer for your party queen."},
+      {"character": "jakob", "text": "Oh, great idea. Add one for me, please."},
+      {"character": "karl", "text": "It shall be an honor for me to serve you some beer."},
+      {"character": "narrator", "text": "<Karl leaves and returns a few minutes later...>"},
+      {"character": "karl", "text": "I'm very sorry, but I have to make you aware of the fact, that there is no more beer available."},
+      {"character": "tracy", "text": "Oh Karl, please don't mess with us."},
+      {"character": "jakob", "text": "Dude, that can't be true. I carried like tons of beer. You just lost your glasses again, ain't ya?"},
+      {"character": "tracy", "text": "Nah, don't be mean now, sweety. Just bring me a beer, would you?"},
+      {"character": "jakob", "text": "Yeah, Karl got his strengths hidden deep inside. I'll help you on this one, mate. Come with me!"},
+      {"character": "narrator", "text": "<Jakob and Karl leave to look for beer...>"},
+      {"character": "jakob", "text": "F***, he was f***ing serious!"},
+      {"character": "tracy", "text": "Damn, this party is over now :("},
+      {"character": "karl", "text": "Just like I told you... it's logical, but in fact very disappointing."},
+      {"character": "jakob", "text": "What..."},
+      {"character": "tracy", "text": "...do..."},
+      {"character": "karl", "text": "...we..."},
+      {"character": "tracy", "text": "...do..."},
+      {"character": "jakob", "text": "...now?"},
+      {"character": "narrator", "text": "What do we do now?"},
+      {"character": "zoe", "text": "Oh beer... I like beer... too..."}
+    ],
+    "fridge": [
+      {"character": "zoe", "text": "Fridge? Which fridge?"},
+      {"character": "karl", "text": "The fridge we already purloined several beers from. Until there had been none left."},
+      {"character": "jakob", "text": "No, I'm sure I put some more in there earlier - to keep them as cool as I am."},
+      {"character": "tracy", "text": "Oh boys, just have a look and bring me my beer!"},
+      {"character": "narrator", "text": "<Jakob and Karl leave once again together to look for beer - again>"},
+      {"character": "jakob", "text": "There really is none left. Guess I drunk too many of them, sorry dudes!"},
+      {"character": "karl", "text": "Just like I said. Not a single one left."}
+    ],
+    "basement": [
+      {"character": "jakob", "text": "There is always some beer in every basement. We just need to look for it."},
+      {"character": "narrator", "text": "<Our dudes make their way to the basement. It's quite dark down there.>"},
+      {"character": "zoe", "text": "Is this beer?"},
+      {"character": "karl", "text": "Zoe, the basement is down here. Come with us."},
+      {"character": "tracy", "text": "I cannot imagine to have beer in my basement."},
+      {"character": "jakob", "text": "There has to be beer. You are just too dumb to find it."},
+      {"character": "karl", "text": "Oh, I found something very interesting..."},
+      {"character": "narrator", "text": "<Nobody values Karl's valuable discovery. They all just look for beer, like Karl.>"},
+      {"character": "zoe", "text": "I feel so lonely... where are my dudes?"}
+    ],
+    "tracyRunCircle": [
+      {"character": "narrator", "text": "<Tracy runs in circles. In several circles.>"},
+      {"character": "narrator", "text": "<She is still running. Nothing else happens meanwhile.>"}
+    ],
+    "gasStation": [
+      {"character": "jakob", "text": "Follow me, dudes! I know where to go for the gas station."}
+    ],
+    "karlsChamber": [
+      {"character": "karl", "text": "You are all welcome. Let's go!"}
+    ],
+    "searchBeerCrate": [
+      {"character": "karl", "text": "It is very propable that within 12 bottles at least one remains filled."},
+      {"character": "jakob", "text": "You're so cool in maths, but so wrong with the beer, dude!"}
+    ],
+    "belowSofa": [
+      {"character": "karl", "text": "I'm very, very sure that a bottle got lost below the sofa."},
+      {"character": "zoe", "text": "Oh poor bottle, we have to rescue her!"},
+      {"character": "tracy", "text": "No don't search there! You won't find anything!"},
+      {"character": "zoe", "text": "Oh, I found a moldy toast."}
+    ],
+    "crashedBottle": [
+      {"character": "tracy", "text": "Oh Zoe, leave that alone. You're too drunk or whatever you are..."}
+    ],
+    "neighbors": [
+      {"character": "tracy", "text": "I think we can just ask one of my friendly neighbors."},
+      {"character": "jakob", "text": "Sounds good. Maybe we also find some other dudes to party."},
+      {"character": "karl", "text": "Let's explore your house."},
+      {"character": "narrator", "text": "<Our dudes go from door to door. Midnight has passed a few hours ago... a lot of 'happy' neighbors.>"}
+    ],
+    "dialogZoeHungry": [
+      {"character": "zoe", "text": "I'm still so hungry..."},
+      {"character": "jakob", "text": "Who cares about food? We need beer!"},
+      {"character": "tracy", "text": "You got munchies again, we know that already."},
+      {"character": "karl", "text": "She told us this exactly five times already."}
+    ]
+  },
+  "choices": [
+    {
+      "text": "In the fridge is always beer. Let's have a look!",
+      "character": "jakob",
+      "dialog": "fridge",
+      "href": "apartment",
+      "local": {
+        "deniedBy": ["fridge"],
+        "set": ["fridge"]
+      }
+    }, {
+      "text": "I always put my beer into my basement, we should look in the basement.",
+      "character": "jakob",
+      "href": "apartment",
+      "dialog": "basement",
+      "local": {
+        "requires": ["fridge"],
+        "deniedBy": ["basement"],
+        "set": ["basement"]
+      },
+      "global": {
+        "set": ["demonScroll"]
+      }
+    }, {
+      "text": "I've seen a bottle falling down and rolling below the sofa. With enough skill we must be able to rescue it.",
+      "character": "karl",
+      "href": "apartment",
+      "dialog": "belowSofa",
+      "local": {
+        "requires": ["crate"],
+        "deniedBy": ["sofa"],
+        "set": ["sofa"]
+      },
+      "global": {
+        "set": ["moldyToast"]
+      }
+    }, {
+      "text": "Some bottle fell off... lick off those drops...",
+      "character": "zoe",
+      "href": "apartment",
+      "dialog": "crashedBottle",
+      "local": {
+        "deniedBy": ["lick"],
+        "set": ["lick"]
+      }
+    }, {
+      "text": "I'm hungry...",
+      "character": "zoe",
+      "href": "apartment",
+      "dialog": "dialogZoeHungry",
+      "local": {
+        "requires": ["lick"],
+        "deniedBy": ["choiceImHungry"],
+        "set": ["choiceImHungry"]
+      }
+    }, {
+      "text": "We should check the beer crate in the kitchen once more for full bottles.",
+      "character": "karl",
+      "href": "apartment",
+      "dialog": "searchBeerCrate",
+      "local": {
+        "deniedBy": ["crate"],
+        "set": ["crate"]
+      }
+    }, {
+      "text": "I know my neighbors well. We can easily ask them for some beer.",
+      "character": "tracy",
+      "href": "apartment",
+      "dialog": "neighbors",
+      "local": {
+        "requires": ["runCircles"],
+        "deniedBy": ["neighbors"],
+        "set": ["neighbors"]
+      }
+    }, {
+      "text": "<Panic and go wild, running in a circle>",
+      "character": "tracy",
+      "href": "apartment",
+      "dialog": "tracyRunCircle",
+      "local": {
+        "deniedBy": ["runCircles"],
+        "set": ["runCircles"]
+      }
+    }, {
+      "text": "I know a buddy from the gas station. He has to help us out!",
+      "character": "jakob",
+      "dialog": "gasStation",
+      "href": "gasStation",
+      "local": {
+        "counters": [
+          { "name": "choiceCounter",
+            "greaterThan": 3}
+        ]
+      }
+    }, {
+      "text": "Dudes, this is getting boring here. Join me to my room, I got all the good stuff back home.",
+      "character": "jakob",
+      "href": "jakobsApartment",
+      "local": {
+        "counters": [
+          { "name": "choiceCounter",
+            "greaterThan": 4}
+        ]
+      }
+    }
+  ]
+}

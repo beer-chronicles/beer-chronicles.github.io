@@ -1,0 +1,79 @@
+{
+  "id": "funfair",
+  "location": "funfair",
+  "dialogs": {
+    "default": [
+      {"character": "narrator", "text": "and like this, our fine travellers found beer."}
+    ]
+  },
+  "choices": [
+    {
+      "text": "Drink beer",
+      "character": "karl",
+      "href": "funfair",
+      "local": {
+        "counters": [
+          { "name": "beersK",
+            "operation": "add",
+            "amount": 1},
+          { "name": "beersK",
+            "lessThan": 4}
+        ]
+      }
+    }, {
+      "text": "Drink beer",
+      "character": "tracy",
+      "href": "funfair",
+      "local": {
+        "counters": [
+          { "name": "beersT",
+            "operation": "add",
+            "amount": 1},
+          { "name": "beersT",
+            "lessThan": 5}
+        ]
+      }
+    }, {
+      "text": "Drink beer",
+      "character": "jakob",
+      "href": "funfair",
+      "local": {
+        "counters": [
+          { "name": "beersJ",
+            "operation": "add",
+            "amount": 1},
+          { "name": "beersJ",
+            "lessThan": 7}
+        ]
+      }
+    }, {
+      "text": "Drink beer",
+      "character": "zoe",
+      "href": "funfair",
+      "local": {
+        "counters": [
+          { "name": "beersZ",
+            "operation": "add",
+            "amount": 1},
+          { "name": "beersZ",
+            "lessThan": 9}
+        ]
+      }
+    }, {
+      "text": "blackout (happy ending)",
+      "href": "credits",
+      "local": {
+        "counters": [
+          { "name": "beersK",
+            "greaterThan": 2},
+          { "name": "beersT",
+            "greaterThan": 3},
+          { "name": "beersJ",
+            "greaterThan": 4},
+          { "name": "beersZ",
+            "greaterThan": 5}
+        ]
+      }
+    }
+  ]
+}
